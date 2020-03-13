@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.works.works_file_picker">
+
+    <application>
+
+        <activity
+                android:name=".WorksFilePickerActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/bottom_slide"
+                android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+                android:name=".TextReaderActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/left_slide"
+                android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+                android:name=".WebFileReaderActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/left_slide"
+                android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+                android:name=".PDFReaderActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/left_slide"
+                android:windowSoftInputMode="stateAlwaysHidden"/>
+    </application>
+
+</manifest>
