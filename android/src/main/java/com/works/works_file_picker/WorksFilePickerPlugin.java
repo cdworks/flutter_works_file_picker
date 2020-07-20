@@ -114,11 +114,19 @@ public class WorksFilePickerPlugin implements FlutterPlugin, ActivityAware, Plug
       long barColor = (long) info.get("barColor");
       long titleColor = (long) info.get("titleColor");
 
+      String displayName = "";
+      if(info.containsKey("fileName"))
+      {
+        displayName = (String)info.get("fileName");
+      }
+
       Intent intent = new Intent(activity, WorksFilePickerActivity.class);
       intent.putExtra("barColor",(int)barColor);
       intent.putExtra("titleColor",(int)titleColor);
+      intent.putExtra("displayName",displayName);
 
-      FileOpenUtil.openFile(activity,new File((String)info.get("filePath")),(int)barColor,(int)titleColor);
+      FileOpenUtil.openFile(activity,new File((String)info.get("filePath")),
+              (int)barColor,(int)titleColor,displayName);
 
     }
     else {

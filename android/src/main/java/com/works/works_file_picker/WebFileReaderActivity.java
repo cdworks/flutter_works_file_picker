@@ -26,7 +26,7 @@ public class WebFileReaderActivity extends FragmentActivity {
     private  int titleColor;
     private File webFile;
     private WebView webView;
-
+    private String displayName;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public class WebFileReaderActivity extends FragmentActivity {
         titleColor = getIntent().getIntExtra("titleColor",0xffffff);
         String path = getIntent().getStringExtra("filePath");
         String mimeType = getIntent().getStringExtra("mimeType");
-
+        displayName = getIntent().getStringExtra("displayName");
 
 
         setContentView(R.layout.web_file_reader_activity);
@@ -70,7 +70,14 @@ public class WebFileReaderActivity extends FragmentActivity {
 
         if(path != null) {
             webFile = new File(path);
-            titleTextView.setText(webFile.getName());
+            if(displayName.length() > 0) {
+                titleTextView.setText(displayName);
+            }
+            else
+            {
+                titleTextView.setText(webFile.getName());
+            }
+//            titleTextView.setText(webFile.getName());
 
             if(mimeType.startsWith("image/"))
             {

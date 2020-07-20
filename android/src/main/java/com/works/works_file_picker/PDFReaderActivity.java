@@ -32,7 +32,7 @@ public class PDFReaderActivity extends FragmentActivity {
     private File pdfFile;
     private PDFView pdfView;
     private TextView pageTextView;
-
+    private String displayName;
     private Handler mHandler;
 
 
@@ -43,7 +43,7 @@ public class PDFReaderActivity extends FragmentActivity {
         barColor = getIntent().getIntExtra("barColor",0);
         titleColor = getIntent().getIntExtra("titleColor",0xffffff);
         String path = getIntent().getStringExtra("filePath");
-
+        displayName = getIntent().getStringExtra("displayName");
         setContentView(R.layout.pdf_file_reader_activity);
 
 
@@ -75,7 +75,13 @@ public class PDFReaderActivity extends FragmentActivity {
 
         if(path != null) {
             pdfFile = new File(path);
-            titleTextView.setText(pdfFile.getName());
+            if(displayName.length() > 0) {
+                titleTextView.setText(displayName);
+            }
+            else
+            {
+                titleTextView.setText(pdfFile.getName());
+            }
         }
         readPdfFile();
 

@@ -44,7 +44,11 @@ else if ([@"openFile" isEqualToString:call.method]) {
     NSDictionary* info = call.arguments;
     NSString* filePaht = info[@"filePath"];
     self.fileInteractionController.URL = [NSURL fileURLWithPath:filePaht];
-    
+    NSString* name = [info valueForKeyPath:@"fileName"];
+    if(name.length)
+    {
+        self.fileInteractionController.name = name;
+    }
     
     BOOL canPreview =  [self.fileInteractionController presentPreviewAnimated:YES];
     //无法打开提示

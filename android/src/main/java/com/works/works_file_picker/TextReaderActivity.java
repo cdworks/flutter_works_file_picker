@@ -23,6 +23,7 @@ public class TextReaderActivity extends FragmentActivity {
     private  int titleColor;
     private File textFile;
     private TextView textView;
+    private String displayName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class TextReaderActivity extends FragmentActivity {
         barColor = getIntent().getIntExtra("barColor",0);
         titleColor = getIntent().getIntExtra("titleColor",0xffffff);
         String path = getIntent().getStringExtra("filePath");
+        displayName = getIntent().getStringExtra("displayName");
         if(path != null) {
             textFile = new File(path);
         }
@@ -42,7 +44,13 @@ public class TextReaderActivity extends FragmentActivity {
         if(textFile != null)
         {
             textView.setText(getFileContent());
-            titleTextView.setText(textFile.getName());
+            if(displayName.length() > 0) {
+                titleTextView.setText(displayName);
+            }
+            else
+            {
+                titleTextView.setText(textFile.getName());
+            }
         }
 
 

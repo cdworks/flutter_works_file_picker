@@ -415,7 +415,8 @@ public class WorksFilePickerActivity extends FragmentActivity implements View.On
                     }
                     else
                     {
-                        FileOpenUtil.openFile(WorksFilePickerActivity.this,file,barColor,titleColor);
+                        FileOpenUtil.openFile(WorksFilePickerActivity.this,
+                                file,barColor,titleColor,file.getName());
                     }
                 }
             });

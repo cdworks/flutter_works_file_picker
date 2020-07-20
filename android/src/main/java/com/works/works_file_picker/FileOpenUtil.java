@@ -12,7 +12,7 @@ import java.io.File;
 
 public class FileOpenUtil {
 
-    public static void openFile(Context context, File file,int barColor,int titleColor){
+    public static void openFile(Context context, File file,int barColor,int titleColor,String displayName){
         String mimeType = MapTable.getMIMEType(file.getName());
         if(mimeType == null)
         {
@@ -29,7 +29,7 @@ public class FileOpenUtil {
             intent.putExtra("barColor",barColor);
             intent.putExtra("titleColor",titleColor);
             intent.putExtra("filePath",file.getPath());
-
+            intent.putExtra("displayName",displayName);
             context.startActivity(intent);
             return;
         }
@@ -44,7 +44,7 @@ public class FileOpenUtil {
             intent.putExtra("titleColor",titleColor);
             intent.putExtra("filePath",file.getPath());
             intent.putExtra("mimeType",mimeType);
-
+            intent.putExtra("displayName",displayName);
             context.startActivity(intent);
             return;
         }
@@ -55,6 +55,7 @@ public class FileOpenUtil {
             intent.putExtra("titleColor",titleColor);
             intent.putExtra("filePath",file.getPath());
             intent.putExtra("mimeType",mimeType);
+            intent.putExtra("displayName",displayName);
             context.startActivity(intent);
             return;
         }

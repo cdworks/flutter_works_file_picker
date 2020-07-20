@@ -23,9 +23,9 @@ class WorksFilePicker {
             "axLength":maxLength});
     return fileList;
   }
-  static openFile(int barColor ,int titleColor,String filePath)
+  static openFile(int barColor ,int titleColor,String filePath,String fileName)
   {
     _channel.invokeMethod('openFile',
-        {"barColor":barColor,"titleColor":titleColor,"filePath":filePath});
+        {"barColor":barColor,"titleColor":titleColor,"filePath":filePath,"fileName":fileName});
   }
 }
